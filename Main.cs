@@ -27,15 +27,15 @@ namespace PHorseClOnE
 
         public static void ForceSwitch(ApiAvatar avi)
         {
+            if (apiapublic == null || AvatarSwitch == null)
+            {
+                var type = AppDomain.CurrentDomain.GetAssemblies().First(x => x.FullName.Contains("Assembly-CSharp,")).GetTypes().First(x => x.BaseType != null && x.BaseType == typeof(APIUser));
+                apiapublic = type.GetProperties().First(x => x.PropertyType == type).GetGetMethod();
+                AvatarSwitch = type.GetMethod("Method_Public_Void_ApiAvatar_String_0");
+            }
             AvatarSwitch.Invoke(apiapublic.Invoke(null, null), new object[] { avi, "AvatarMenu" });
         }
 
-        public override void OnApplicationStart()
-        {
-            var type = AppDomain.CurrentDomain.GetAssemblies().First(x => x.FullName.Contains("Assembly-CSharp,")).GetTypes().First(x => x.BaseType != null && x.BaseType == typeof(APIUser));
-            apiapublic = type.GetProperties().First(x => x.PropertyType == type).GetGetMethod();
-            AvatarSwitch = type.GetMethod("Method_Public_Void_ApiAvatar_String_0");
-        }
         public override void OnUpdate()
         {
             if (RoomManagerBase.field_Internal_Static_ApiWorld_0 == null && RoomManagerBase.field_Internal_Static_ApiWorldInstance_0 == null)
