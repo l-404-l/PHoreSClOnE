@@ -15,7 +15,7 @@ using VRC.Core;
 [assembly: MelonModGame("VRChat", "VRChat")]
 namespace PHorseClOnE
 {
-    public class Main : MelonMod
+    public class Main : MelonMod 
     {
         public static GameObject OldClone = null;
         public static Button OldBtn = null;
