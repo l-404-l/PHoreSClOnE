@@ -71,24 +71,18 @@ namespace PHorseClOnE
             CloneBtn.onClick = new Button.ButtonClickedEvent();
             CloneTxt.text = "";
             CloneBtn.onClick.AddListener(new Action(() => {
-                MelonModLogger.Log("1");
                 if (QuickMenu.prop_QuickMenu_0.prop_APIUser_0 != null)
                 {
-                    MelonModLogger.Log("1");
                     var theplayer = PlayerManager.Method_Public_Static_Player_String_1(QuickMenu.prop_QuickMenu_0.prop_APIUser_0.id);
-                    MelonModLogger.Log("1");
                     if (theplayer != null && theplayer.prop_VRCAvatarManager_0 != null && theplayer.prop_VRCAvatarManager_0.prop_ApiAvatar_0 != null)
                     {
-                        MelonModLogger.Log("1");
                         var avatar = theplayer.prop_VRCAvatarManager_0.prop_ApiAvatar_0;
                         MelonModLogger.Log(avatar.releaseStatus);
                         if (avatar.releaseStatus == "public")
                         {
-                            MelonModLogger.Log("1");
                             ForceSwitch(theplayer.prop_VRCAvatarManager_0.prop_ApiAvatar_0);
                         } else
                         {
-                            MelonModLogger.Log("1");
                             VRCUiPopupManager.prop_VRCUiPopupManager_0.Method_Public_Void_String_String_Single_0("This is private.","Rip it instead.",3f);
                         }
                     }
